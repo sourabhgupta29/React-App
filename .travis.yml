@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+   
+before-install:
+  - docker build -t react-app1 -f Dockerfile.dev .   
+
+script:
+  - docker run -e CI=true react-app1 npm run test
+
